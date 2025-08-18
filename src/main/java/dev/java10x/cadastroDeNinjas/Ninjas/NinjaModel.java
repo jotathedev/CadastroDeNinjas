@@ -1,5 +1,6 @@
-package dev.java10x.cadastroDeNinjas;
+package dev.java10x.cadastroDeNinjas.Ninjas;
 
+import dev.java10x.cadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,11 @@ public class NinjaModel {
     private String email;
     private int idade;
 
+    // Um ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
+    private MissoesModel missoes;
+
     public NinjaModel() {
     }
 
@@ -19,6 +25,13 @@ public class NinjaModel {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
+    }
+
+    public NinjaModel(String nome, String email, int idade, MissoesModel missoes) {
+        this.nome = nome;
+        this.email = email;
+        this.idade = idade;
+        this.missoes = missoes;
     }
 
     public String getNome() {
