@@ -16,22 +16,22 @@ public class NinjaController {
         return "Ninja criado!";
     }
     // Procurar Ninja por ID (READ)
-    @GetMapping("/ninjaPorID")
+    @GetMapping("/listarID")
     public String exibirNinjaporId() {
         return "Ninja Por ID!";
     }
     // Mostrar todos os ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String exibirTodosOsNinjas() {
         return "Todos os ninjas!";
     }
     // Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/atualizarNinjaPorID")
+    @PutMapping("/atualizarID")
     public String atualizarNinjaPorID() {
         return "Os dados desse ninja foram atualizados!";
     }
     // Deletar ninja (DELETE)
-    @DeleteMapping("/deletarNinjaPorID")
+    @DeleteMapping("/removerID")
     public String apagarNinjaPorID() {
         return "Ninja foi deletado!";
     }
