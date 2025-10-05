@@ -26,6 +26,12 @@ public class MissoesController {
         return missoesService.listarMissoesPorId(id);
     }
 
+    // GET - Mostrar missões por dificuldade
+    @GetMapping("/listar/{dificuldade}")
+    public List<MissoesModel> listarMissoesPorDificuldade(@PathVariable String dificuldade) {
+        return missoesService.listarMissoesPorDificuldade(dificuldade);
+    }
+
     // POST - Manda uma requisição para adicionar/criar missões
     @PostMapping("/criar")
     public String criar() {

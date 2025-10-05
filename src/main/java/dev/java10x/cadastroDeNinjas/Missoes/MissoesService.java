@@ -23,6 +23,8 @@ public class MissoesService {
         return missaoPorId.orElse(null);
     }
 
-
+    public List<MissoesModel> listarMissoesPorDificuldade(String dificuldade) {
+        return missoesRepository.findByDificuldade(dificuldade);
+    }
 
 }
