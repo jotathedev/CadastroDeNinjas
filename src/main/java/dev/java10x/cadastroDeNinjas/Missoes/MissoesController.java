@@ -27,15 +27,15 @@ public class MissoesController {
     }
 
     // GET - Mostrar missões por dificuldade
-    @GetMapping("/listar/{dificuldade}")
+    @GetMapping("/listardf/{dificuldade}")
     public List<MissoesModel> listarMissoesPorDificuldade(@PathVariable String dificuldade) {
         return missoesService.listarMissoesPorDificuldade(dificuldade);
     }
 
     // POST - Manda uma requisição para adicionar/criar missões
     @PostMapping("/criar")
-    public String criar() {
-        return "Missão criada com sucesso!";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao) {
+        return missoesService.criarMissao(missao);
     }
 
     // PUT - Manda uma requisição para alterar missões
@@ -45,9 +45,9 @@ public class MissoesController {
     }
 
     // DELETE - Manda uma requisição para deletar missões
-    @DeleteMapping("/remover")
-    public String remover() {
-        return "Missçao foi removida com sucesso!";
+    @DeleteMapping("/remover/{id}")
+    public void removerMissaoPorId(@PathVariable Long id) {
+        missoesService.removerMissaoPorId(id);
     }
 
 }
