@@ -18,6 +18,7 @@ public class NinjaModel {
     private Long id;
     @Column(name = "nome")
     private String nome;
+    // TODO: Transformar email em unique
     private String email;
     @Column(name = "img_url")
     private String imgUrl;
