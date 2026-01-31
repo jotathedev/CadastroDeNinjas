@@ -27,4 +27,12 @@ public class MissoesService {
         return missoesRepository.findByDificuldade(dificuldade);
     }
 
+    public void removerMissaoPorId(Long id) {
+        missoesRepository.deleteById(id);
+    }
+
+    public MissoesModel criarMissao(MissoesModel missao) {
+        return missoesRepository.save(missao);
+    }
+
 }
