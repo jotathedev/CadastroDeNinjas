@@ -18,15 +18,16 @@ public class NinjaModel {
     private Long id;
     @Column(name = "nome")
     private String nome;
-    // TODO: Transformar email em unique
+    @Column(unique = true)
     private String email;
     @Column(name = "img_url")
     private String imgUrl;
     @Column(name = "idade")
     private int idade;
+    @Column(name = "rank_shinobi")
+    private String rankShinobi;
 
-    // Um ninja(Varías instâncias de ninja) tem uma única missão
     @ManyToOne
-    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
+    @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
 }
