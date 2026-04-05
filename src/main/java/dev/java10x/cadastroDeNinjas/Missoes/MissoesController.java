@@ -14,37 +14,31 @@ public class MissoesController {
         this.missoesService = missoesService;
     }
 
-    // GET - Mostrar todas as missoes
     @GetMapping("/listar")
-    public List<MissoesModel> listarMissoes() {
+    public List<MissoesDTO> listarMissoes() {
         return missoesService.listarMissoes();
     }
 
-    // GET - Procurar missão por id
     @GetMapping("/listar/{id}")
-    public MissoesModel listarMissoesPorId(@PathVariable Long id) {
+    public MissoesDTO listarMissoesPorId(@PathVariable Long id) {
         return missoesService.listarMissoesPorId(id);
     }
 
-    // GET - Mostrar missões por dificuldade
     @GetMapping("/listardf/{dificuldade}")
-    public List<MissoesModel> listarMissoesPorDificuldade(@PathVariable String dificuldade) {
+    public List<MissoesDTO> listarMissoesPorDificuldade(@PathVariable String dificuldade) {
         return missoesService.listarMissoesPorDificuldade(dificuldade);
     }
 
-    // POST - Manda uma requisição para adicionar/criar missões
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missao) {
+    public MissoesDTO criarMissao(@RequestBody MissoesDTO missao) {
         return missoesService.criarMissao(missao);
     }
 
-    // PUT - Manda uma requisição para alterar missões
-    @PutMapping("/atualizar")
-    public String atualizarMissao() {
-        return "Missão atualizada com sucesso!";
+    @PutMapping("/atualizar/{id}")
+    public MissoesDTO atualizarMissao(@PathVariable Long id, @RequestBody MissoesDTO missaoAtualizada) {
+        return missoesService.atualizarMissao(id, missaoAtualizada);
     }
 
-    // DELETE - Manda uma requisição para deletar missões
     @DeleteMapping("/remover/{id}")
     public void removerMissaoPorId(@PathVariable Long id) {
         missoesService.removerMissaoPorId(id);
